@@ -25,3 +25,12 @@ Route::post('/metode', 'MetodeController@store');
 Route::get('/skpd', 'SKPDController@index');
 Route::get('/skpd/add', 'SKPDController@create');
 Route::post('/skpd', 'SKPDController@store');
+
+// pptk
+Route::get('/pptk', 'PPTKController@index');
+Route::get('/pptk/add', 'PPTKController@create');
+Route::post('/pptk', 'PPTKController@store');
+
+// pimpinan skpd
+Route::get('/pimpinan-skpd','PimpinanController@index');
+Route::get('/pimpinan-skpd/add','PimpinanController@create');

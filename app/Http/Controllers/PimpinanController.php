@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\PPTK;
+use App\Pimpinan;
 use Illuminate\Http\Request;
 
-class PPTKController extends Controller
+class PimpinanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PPTKController extends Controller
      */
     public function index()
     {
-        $pptk = PPTK::all();
-        return view('pptk.index', ['pptks' => $pptk]);
+        $pimpinan = Pimpinan::all() ;
+        return view('pimpinanSKPD.index',['pimpinans' => $pimpinan]);
     }
 
     /**
@@ -25,7 +25,7 @@ class PPTKController extends Controller
      */
     public function create()
     {
-        return view('pptk.create');
+        return view('pimpinanSKPD.create');
     }
 
     /**
@@ -36,22 +36,16 @@ class PPTKController extends Controller
      */
     public function store(Request $request)
     {
-        $request ->validate([
-            'nip' => 'required | numeric',
-            'nama_pptk' => 'required'
-        ]);
-
-        PPTK::create($request->all());
-        return redirect('/pptk')->with('status','PPTK berhasil ditambahkan');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\PPTK  $pPTK
+     * @param  \App\Pimpinan  $pimpinan
      * @return \Illuminate\Http\Response
      */
-    public function show(PPTK $pPTK)
+    public function show(Pimpinan $pimpinan)
     {
         //
     }
@@ -59,10 +53,10 @@ class PPTKController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\PPTK  $pPTK
+     * @param  \App\Pimpinan  $pimpinan
      * @return \Illuminate\Http\Response
      */
-    public function edit(PPTK $pPTK)
+    public function edit(Pimpinan $pimpinan)
     {
         //
     }
@@ -71,10 +65,10 @@ class PPTKController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\PPTK  $pPTK
+     * @param  \App\Pimpinan  $pimpinan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PPTK $pPTK)
+    public function update(Request $request, Pimpinan $pimpinan)
     {
         //
     }
@@ -82,10 +76,10 @@ class PPTKController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\PPTK  $pPTK
+     * @param  \App\Pimpinan  $pimpinan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PPTK $pPTK)
+    public function destroy(Pimpinan $pimpinan)
     {
         //
     }

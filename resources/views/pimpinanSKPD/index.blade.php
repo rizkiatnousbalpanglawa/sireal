@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container-fluid">
-    <h3 class="mt-4">Satuan Kerja Perangkat Daerah</h3>
+    <h3 class="mt-4">Pimpinan SKPD</h3>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">SKPD</li>
+        <li class="breadcrumb-item active">Pimpinan SKPD</li>
     </ol>
 
     @if (session('status'))
@@ -12,28 +12,27 @@
         {{ session('status') }}
     </div>
     @endif
+
     <div class="card">
         <div class="card-body">
-            <a href="{{ url('/skpd/add') }}" class="btn btn-primary btn-sm mb-3">Tambah</a>
+            <a href="{{ url('/pimpinan-skpd/add') }}" class="btn btn-primary btn-sm mb-3">Tambah</a>
             <div class="table-responsive">
                 <table class="table table-bordered dataTable">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama</th>
-                            <th>username</th>
+                            <th>Metode Penunjukan</th>
                             <th>Act</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($skpds as $skpd)
+                        @foreach ($pimpinans as $pimpinan)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $skpd-> nama }}</td>
-                            <td>{{ $skpd->uname }}</td>
+                            <td>{{ $pimpinan-> metode }}</td>
                             <td>
                                 <a href="" class="btn btn-info btn-sm">Edit</a>
-                                <form action="{{ url('/skpd').'/'.$skpd->id }}" class="d-inline">
+                                <form action="{{ url('/metode').'/'.$metode->id }}" class="d-inline">
                                     <button href="" class="btn btn-danger btn-sm">Hapus</button>
                                 </form>
                             </td>
@@ -45,4 +44,5 @@
         </div>
     </div>
 </div>
+
 @endsection
