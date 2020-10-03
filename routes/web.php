@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SKPDController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,5 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','PagesController@home');
-Route::get('/penujukan', 'PenjunjukanController@index');
+Route::get('/', 'PagesController@home');
+
+// metode
+Route::get('/metode', 'MetodeController@index');
+Route::get('/metode/add', 'MetodeController@create');
+Route::post('/metode', 'MetodeController@store');
+
+// skpd
+Route::get('/skpd', 'SKPDController@index');
+Route::get('/skpd/add', 'SKPDController@create');
+Route::post('/skpd', 'SKPDController@store');

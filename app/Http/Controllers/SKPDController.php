@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\SKPD;
 use Illuminate\Http\Request;
 
-class PenunjukanController extends Controller
+class SKPDController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class PenunjukanController extends Controller
      */
     public function index()
     {
-        //
+        $skpds = SKPD::all();
+        return view('skpd.index', ['skpds' => $skpds]);
     }
 
     /**
@@ -23,7 +25,7 @@ class PenunjukanController extends Controller
      */
     public function create()
     {
-        //
+        return view('skpd.create');
     }
 
     /**
@@ -34,16 +36,23 @@ class PenunjukanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'uname' => 'required',
+            'pword' => 'required'
+        ]);
+
+        SKPD::create($request->all());
+        return redirect('/skpd')->with('status','SKPD berhasil ditambahkan!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\SKPD  $sKPD
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(SKPD $sKPD)
     {
         //
     }
@@ -51,10 +60,10 @@ class PenunjukanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\SKPD  $sKPD
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(SKPD $sKPD)
     {
         //
     }
@@ -63,10 +72,10 @@ class PenunjukanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\SKPD  $sKPD
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, SKPD $sKPD)
     {
         //
     }
@@ -74,10 +83,10 @@ class PenunjukanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\SKPD  $sKPD
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(SKPD $sKPD)
     {
         //
     }
