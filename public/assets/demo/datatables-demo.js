@@ -2,3 +2,11 @@
 $(document).ready(function() {
   $('.dataTable').DataTable();
 });
+
+$(document).ready(function() {
+  $('.dataTable-nosearch').DataTable(
+    {
+      "searching" : false
+    }
+  );
+});

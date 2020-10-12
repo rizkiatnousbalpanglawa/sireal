@@ -7,26 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Dashboard - SB Admin</title>
+    <title>Dashboard - Admin</title>
     <link href="{{ url('css/styles.css') }}" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet"
         crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     </script>
 </head>
 
 <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-blue">
         <a class="navbar-brand" href="index.html">SIREAL</a><button class="btn btn-link btn-sm order-1 order-lg-0"
             id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button><!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div class="input-group">
-                <input class="form-control" type="text" placeholder="Search for..." aria-label="Search"
+                <input class="form-control" type="hidden" placeholder="Search for..." aria-label="Search"
                     aria-describedby="basic-addon2" />
-                <div class="input-group-append">
-                    <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-                </div>
+
             </div>
         </form>
         <!-- Navbar-->
@@ -44,31 +44,44 @@
     </nav>
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-blue" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Data Master</div>
-                        <a class="nav-link" href="{{ url('/skpd') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            SKPD
-                        </a>
-                        <a class="nav-link" href="{{ url('/pimpinan-skpd') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            Pimpinan SKPD
-                        </a>
                         <a class="nav-link" href="{{ url('/metode') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-gavel"></i></div>
                             Metode Penunjukan
                         </a>
+                        <a class="nav-link" href="{{ url('/pimpinan-skpd') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-tie"></i></div>
+                            Pimpinan SKPD
+                        </a>
                         <a class="nav-link" href="{{ url('/pptk') }}">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-secret"></i></div>
                             PPK / PPTK
+                        </a>
+                        <a class="nav-link" href="{{ url('/skpd') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                            SKPD
+                        </a>
+                        <a class="nav-link" href="{{ url('/tahun-anggaran') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+                            Tahun Anggaran
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Main Menu</div>
+                        <a class="nav-link" href="{{ url('/') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Dashboard
+                        </a>
+                        <a class="nav-link" href="{{ url('/data-realisasi') }}">
+                            <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
+                            Data Realisasi
                         </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Start Bootstrap
+                    Admin
                 </div>
             </nav>
         </div>
@@ -78,13 +91,9 @@
             </main>
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid">
-                    <div class="d-flex align-items-center justify-content-between small">
+                    <div class="d-flex align-items-center justify-content-end small">
                         <div class="text-muted">Copyright &copy; Your Website 2019</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
+
                     </div>
                 </div>
             </footer>
@@ -100,6 +109,7 @@
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
     <script src="{{ url('assets/demo/datatables-demo.js') }}"></script>
+    @yield('script')
 </body>
 
 </html>

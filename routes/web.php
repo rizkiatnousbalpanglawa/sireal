@@ -32,5 +32,16 @@ Route::get('/pptk/add', 'PPTKController@create');
 Route::post('/pptk', 'PPTKController@store');
 
 // pimpinan skpd
-Route::get('/pimpinan-skpd','PimpinanController@index');
-Route::get('/pimpinan-skpd/add','PimpinanController@create');
+Route::get('/pimpinan-skpd', 'PimpinanController@index');
+Route::get('/pimpinan-skpd/add', 'PimpinanController@create');
+Route::post('/pimpinan-skpd', 'PimpinanController@store');
+
+// data realisasi
+Route::get('/data-realisasi', 'DataRealisasiController@index');
+Route::get('/data-realisasi/add', 'DataRealisasiController@create');
+Route::post('/data-realisasi', 'DataRealisasiController@store');
+
+// tahun anggaran
+Route::get('/tahun-anggaran','TahunAnggaranController@index');
+Route::get('/tahun-anggaran/add','TahunAnggaranController@create');
+Route::post('/tahun-anggaran','TahunAnggaranController@store');

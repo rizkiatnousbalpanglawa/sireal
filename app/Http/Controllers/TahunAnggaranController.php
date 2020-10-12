@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Pimpinan;
+use App\TahunAnggaran;
 use Illuminate\Http\Request;
 
-class PimpinanController extends Controller
+class TahunAnggaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class PimpinanController extends Controller
      */
     public function index()
     {
-        $pimpinan = Pimpinan::all() ;
-        return view('pimpinanSKPD.index',['pimpinans' => $pimpinan]);
+        $data = TahunAnggaran::all();
+        return view('tahunAnggaran.index',['tahuns' => $data]);
     }
 
     /**
@@ -25,7 +25,7 @@ class PimpinanController extends Controller
      */
     public function create()
     {
-        return view('pimpinanSKPD.create');
+        return view('tahunAnggaran.create');
     }
 
     /**
@@ -37,20 +37,21 @@ class PimpinanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nip' => 'required',
-            'pimpinan' => 'required'
+            'tahun' => 'required'
         ]);
-       Pimpinan::create($request->all());
-       return redirect('/pimpinan-skpd')->with('status','Pimpinan berhasil ditambahkan');
+
+        TahunAnggaran::create($request->all());
+
+        return redirect('/tahun-anggaran')->with('status','Tahun Berhasil Ditambahkan');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Pimpinan  $pimpinan
+     * @param  \App\TahunAnggaran  $tahunAnggaran
      * @return \Illuminate\Http\Response
      */
-    public function show(Pimpinan $pimpinan)
+    public function show(TahunAnggaran $tahunAnggaran)
     {
         //
     }
@@ -58,10 +59,10 @@ class PimpinanController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Pimpinan  $pimpinan
+     * @param  \App\TahunAnggaran  $tahunAnggaran
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pimpinan $pimpinan)
+    public function edit(TahunAnggaran $tahunAnggaran)
     {
         //
     }
@@ -70,10 +71,10 @@ class PimpinanController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Pimpinan  $pimpinan
+     * @param  \App\TahunAnggaran  $tahunAnggaran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pimpinan $pimpinan)
+    public function update(Request $request, TahunAnggaran $tahunAnggaran)
     {
         //
     }
@@ -81,10 +82,10 @@ class PimpinanController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Pimpinan  $pimpinan
+     * @param  \App\TahunAnggaran  $tahunAnggaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pimpinan $pimpinan)
+    public function destroy(TahunAnggaran $tahunAnggaran)
     {
         //
     }

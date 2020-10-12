@@ -21,7 +21,8 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Metode Penunjukan</th>
+                            <th>NIP</th>
+                            <th>Nama Lengkap</th>
                             <th>Act</th>
                         </tr>
                     </thead>
@@ -29,10 +30,11 @@
                         @foreach ($pimpinans as $pimpinan)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $pimpinan-> metode }}</td>
+                            <td>{{ $pimpinan->nip }}</td>
+                            <td>{{ $pimpinan -> pimpinan }}</td>
                             <td>
                                 <a href="" class="btn btn-info btn-sm">Edit</a>
-                                <form action="{{ url('/metode').'/'.$metode->id }}" class="d-inline">
+                                <form action="{{ url('/pimpinan-skpd').'/'.$pimpinan->id }}" class="d-inline">
                                     <button href="" class="btn btn-danger btn-sm">Hapus</button>
                                 </form>
                             </td>
